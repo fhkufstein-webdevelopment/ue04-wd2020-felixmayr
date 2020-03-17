@@ -8,9 +8,9 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     this.minLength = 8; //this is what we defined and what we need to consider in our length check
 
     //this attributes are set with our constructor
-    this.wrapperField = $(wrapperId);
-    this.passwordField = $(passwordInputFieldId);
-    this.passwordSubmitButton = $(passwordSubmitButtonId);
+    this.wrapperField = $(wrapperId); // JQuery Selector
+    this.passwordField = $(passwordInputFieldId); // JQuery Selector
+    this.passwordSubmitButton = $(passwordSubmitButtonId); // JQuery Selector
 
 
     var that = this; //a trick because this is a keyword and means different things in a new context! Especially when you work with events or if you call functions outside your class "this" won't mean you!
@@ -39,8 +39,7 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
     this.passwordSubmitButton.click(function() {
         that.check();
     });
-
-
+    // JQuery Eventhandlers anstatt Vanilla JS Handler
 
     this.check = function() {
         //we can only check if every field which with given Id exists
@@ -60,6 +59,10 @@ function PasswordChecker(wrapperId, passwordInputFieldId, passwordSubmitButtonId
                 this.wrapperField.removeClass(this.warningClass + ' ' + this.successClass).addClass(this.errorClass);
                 this.passwordSubmitButton.attr('disabled', true);
             }
+
+            // JQuery Funktionen für Classen
+            // In 2020 hat es in meinen Augen keinen Sinn mehr Jquery zu benutzen da die meisten Funktionen mittlerweile in Vanilla JS vorhanden sind.
+            // Weiters zahlt sich die zusätzliche Funktionalität nicht aus im Verhältnis zu "import"-Größe der Library
 
 
         } else {
